@@ -3,6 +3,7 @@
 
 #include <QObject>
 #include <QSqlDatabase>
+#include <QDebug>
 
 class database : public QObject
 {
@@ -10,9 +11,8 @@ class database : public QObject
 public:
     explicit database(QObject *parent = nullptr);
 
-signals:
-
-public slots:
+private:
+    QSqlDatabase db;
 };
 
 #endif // DATABASE_H
