@@ -1,5 +1,6 @@
 #include "database.h"
 #include <QSqlError>
+#include <QSqlQuery>
 
 database::database(QObject *parent) : QObject(parent)
 {
@@ -9,7 +10,14 @@ database::database(QObject *parent) : QObject(parent)
     db.setUserName("root");
     db.setPassword("password");
 
-    if(!db.open()) {
-       qDebug() << db.lastError();
+    if(db.open()) {
+        qDebug() << "Opened";
+        QSqlQuery query;
+        query.exec("SELECT title FROM articles");
+        query.first();
+        qDebug() << query.value(0).toString();
+    }
+    else {
+        qDebug() << db.lastError();
     }
 }
