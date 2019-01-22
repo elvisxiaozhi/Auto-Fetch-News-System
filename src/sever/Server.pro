@@ -27,11 +27,14 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
         main.cpp \
         widget.cpp \
-    database.cpp
+    database.cpp \
+    articles.cpp
 
 HEADERS += \
         widget.h \
-    database.h
+    database.h \
+    articles.h
 
 FORMS += \
-        widget.ui
+        widget.ui \
+    articles.ui

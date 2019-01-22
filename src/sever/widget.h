@@ -3,6 +3,7 @@
 
 #include <QWidget>
 #include "database.h"
+#include "articles.h"
 
 namespace Ui {
 class Widget;
@@ -18,6 +19,7 @@ public:
 
 private:
     Ui::Widget *ui;
+    Articles *articles;
     database *db;
 };
 

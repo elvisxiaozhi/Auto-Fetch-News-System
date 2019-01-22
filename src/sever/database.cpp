@@ -12,12 +12,16 @@ database::database(QObject *parent) : QObject(parent)
 
     if(db.open()) {
         qDebug() << "Opened";
-        QSqlQuery query;
-        query.exec("SELECT title FROM articles");
-        query.first();
-        qDebug() << query.value(0).toString();
     }
     else {
         qDebug() << db.lastError();
     }
+
+    QSqlQuery query;
+    query.exec("SELECT title FROM articles");
+    while (query.next()) {
+        titleList += query.value(0).toStringList();
+    }
+
+    qDebug() << titleList;
 }
