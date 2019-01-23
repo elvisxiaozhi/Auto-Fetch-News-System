@@ -17,6 +17,7 @@ public:
 
 private:
     Ui::Articles *ui;
+    void addData();
 };
 
 #endif // ARTICLES_H

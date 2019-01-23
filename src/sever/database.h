@@ -11,8 +11,15 @@ class Database : public QObject
 public:
     explicit Database(QObject *parent = nullptr);
     ~Database();
+    static QStringList dateList;
     static QStringList titleList;
+    static QStringList linkList;
+    static QStringList keywordList;
+    static QStringList viewList;
+    static QStringList likeList;
+    static QStringList commentList;
     static void readData();
+    static void writeData(QString, QString, QString, QString, int, int, int);
 
 private:
     QSqlDatabase db;
