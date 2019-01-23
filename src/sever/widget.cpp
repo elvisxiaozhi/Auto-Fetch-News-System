@@ -7,14 +7,11 @@ Widget::Widget(QWidget *parent) :
     ui(new Ui::Widget)
 {
     ui->setupUi(this);
-    db = new database(this);
+
+    db = new Database(this);
 
     articles = new Articles(this);
     ui->tabWidget->addTab(articles, "Articles");
-
-    for (int i = 0; i < db->titleList.size(); ++i) {
-        articles->ui->titleList->addItem(db->titleList[i]);
-    }
 }
 
 Widget::~Widget()

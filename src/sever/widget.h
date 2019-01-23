@@ -20,7 +20,7 @@ public:
 private:
     Ui::Widget *ui;
     Articles *articles;
-    database *db;
+    Database *db;
 };
 
 #endif // WIDGET_H

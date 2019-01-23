@@ -15,9 +15,8 @@ public:
     explicit Articles(QWidget *parent = 0);
     ~Articles();
 
-    Ui::Articles *ui;
-
 private:
+    Ui::Articles *ui;
 };
 
 #endif // ARTICLES_H

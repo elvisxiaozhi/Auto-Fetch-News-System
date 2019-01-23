@@ -2,7 +2,9 @@
 #include <QSqlError>
 #include <QSqlQuery>
 
-database::database(QObject *parent) : QObject(parent)
+QStringList Database::titleList;
+
+Database::Database(QObject *parent) : QObject(parent)
 {
     db = QSqlDatabase::addDatabase("QMYSQL");
     db.setHostName("localhost");
@@ -10,18 +12,21 @@ database::database(QObject *parent) : QObject(parent)
     db.setUserName("root");
     db.setPassword("password");
 
-    if(db.open()) {
-        qDebug() << "Opened";
-    }
-    else {
+    if(!db.open()) {
         qDebug() << db.lastError();
     }
+}
 
+Database::~Database()
+{
+    db.close();
+}
+
+void Database::readData()
+{
     QSqlQuery query;
     query.exec("SELECT title FROM articles");
     while (query.next()) {
         titleList += query.value(0).toStringList();
     }
-
-    qDebug() << titleList;
 }

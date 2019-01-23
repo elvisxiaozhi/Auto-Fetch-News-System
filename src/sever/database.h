@@ -5,12 +5,14 @@
 #include <QSqlDatabase>
 #include <QDebug>
 
-class database : public QObject
+class Database : public QObject
 {
     Q_OBJECT
 public:
-    explicit database(QObject *parent = nullptr);
-    QStringList titleList;
+    explicit Database(QObject *parent = nullptr);
+    ~Database();
+    static QStringList titleList;
+    static void readData();
 
 private:
     QSqlDatabase db;
