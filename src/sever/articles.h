@@ -18,6 +18,7 @@ public:
 private:
     Ui::Articles *ui;
     void addData();
+    void deleteRow();
 };
 
 #endif // ARTICLES_H
