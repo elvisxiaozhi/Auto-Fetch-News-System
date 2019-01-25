@@ -26,5 +26,9 @@ void Articles::addData()
 void Articles::deleteRow()
 {
     int row = ui->tableView->currentIndex().row();
-    qDebug() << ui->tableView->model()->data(ui->tableView->model()->index(row, 0)).toString();
+    QString id = ui->tableView->model()->data(ui->tableView->model()->index(row, 0)).toString();
+    qDebug() << id;
+    Database::deleteRow(id);
+
+    addData();
 }

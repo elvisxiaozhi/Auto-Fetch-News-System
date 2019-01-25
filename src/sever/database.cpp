@@ -47,3 +47,11 @@ void Database::writeData(QString date, QString title, QString link, QString keyw
     query.bindValue(":commentsValue", comments);
     query.exec();
 }
+
+void Database::deleteRow(QString id)
+{
+    QSqlQuery query;
+    query.prepare("DELETE FROM articles WHERE article_id = :id");
+    query.bindValue(":id", id);
+    query.exec();
+}
