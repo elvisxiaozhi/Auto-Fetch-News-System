@@ -33,7 +33,7 @@
       </spacer>
      </item>
      <item>
-      <widget class="QPushButton" name="pushButton">
+      <widget class="QPushButton" name="addBtn">
        <property name="text">
         <string>Add</string>
        </property>

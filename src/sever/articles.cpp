@@ -1,6 +1,7 @@
 #include "articles.h"
 #include "ui_articles.h"
 #include "database.h"
+#include "newarticle.h"
 
 Articles::Articles(QWidget *parent) :
     QWidget(parent),
@@ -9,8 +10,6 @@ Articles::Articles(QWidget *parent) :
     ui->setupUi(this);
 
     addData();
-
-    connect(ui->deleteBtn, &QPushButton::clicked, this, &Articles::deleteRow);
 }
 
 Articles::~Articles()
@@ -23,12 +22,18 @@ void Articles::addData()
     ui->tableView->setModel(Database::readData());
 }
 
-void Articles::deleteRow()
+void Articles::on_deleteBtn_clicked()
 {
     int row = ui->tableView->currentIndex().row();
     QString id = ui->tableView->model()->data(ui->tableView->model()->index(row, 0)).toString();
-    qDebug() << id;
     Database::deleteRow(id);
 
     addData();
+}
+
+void Articles::on_addBtn_clicked()
+{
+    NewArticle *mWidget = new NewArticle();
+    mWidget->show();
+    connect(mWidget, &NewArticle::dataWritten, [this](){ addData(); });
 }

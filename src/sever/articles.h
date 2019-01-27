@@ -18,7 +18,10 @@ public:
 private:
     Ui::Articles *ui;
     void addData();
-    void deleteRow();
+
+private slots:
+    void on_deleteBtn_clicked();
+    void on_addBtn_clicked();
 };
 
 #endif // ARTICLES_H

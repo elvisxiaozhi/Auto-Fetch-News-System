@@ -13,7 +13,7 @@ public:
     explicit Database(QObject *parent = nullptr);
     ~Database();
     static QSqlQueryModel *readData();
-    static void writeData(QString, QString, QString, QString, int, int, int);
+    static void writeData(QString, QString, QString, int, int, int, QString, QString);
     static void deleteRow(QString);
 
 private:

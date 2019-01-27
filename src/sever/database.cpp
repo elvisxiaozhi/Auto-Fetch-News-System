@@ -31,20 +31,21 @@ QSqlQueryModel *Database::readData()
     return model;
 }
 
-void Database::writeData(QString date, QString title, QString link, QString keywords, int views, int likes, int comments)
+void Database::writeData(QString date, QString title, QString link, int views, int likes, int comments, QString keywords, QString remark)
 {
     QSqlQuery query;
     query.prepare("INSERT INTO articles"
-                  "(publication_date, title, link, keywords, views, likes, comments)"
+                  "(publication_date, title, link, views, likes, comments, keywords, remark)"
                   "VALUES"
-                  "(:dateValue, :titleValue, :linkValue, :keywordsValue, :viewsValue, :likesValue, :commentsValue);");
+                  "(:dateValue, :titleValue, :linkValue, :viewsValue, :likesValue, :commentsValue, :keywordsValue, :remarkValue);");
     query.bindValue(":dateValue", date);
     query.bindValue(":titleValue", title);
     query.bindValue(":linkValue", link);
-    query.bindValue(":keywordsValue", keywords);
     query.bindValue(":viewsValue", views);
     query.bindValue(":likesValue", likes);
     query.bindValue(":commentsValue", comments);
+    query.bindValue(":keywordsValue", keywords);
+    query.bindValue(":remarkValue", remark);
     query.exec();
 }
 

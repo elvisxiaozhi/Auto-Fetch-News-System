@@ -28,13 +28,16 @@ SOURCES += \
         main.cpp \
         widget.cpp \
     database.cpp \
-    articles.cpp
+    articles.cpp \
+    newarticle.cpp
 
 HEADERS += \
         widget.h \
     database.h \
-    articles.h
+    articles.h \
+    newarticle.h
 
 FORMS += \
         widget.ui \
-    articles.ui
+    articles.ui \
+    newarticle.ui
