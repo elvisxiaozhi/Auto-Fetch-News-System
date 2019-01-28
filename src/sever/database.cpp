@@ -49,6 +49,32 @@ void Database::writeData(QString date, QString title, QString link, int views, i
     query.exec();
 }
 
+void Database::modifyData(QString id, QString date, QString title, QString link, int views, int likes, int comments, QString keywords, QString remark)
+{
+    QSqlQuery query;
+
+    query.prepare("UPDATE articles SET "
+                  "publication_date = :dateValue, title = :titleValue, link = :linkValue,"
+                  "views = :viewsValue, likes = :likesValue, comments = :commentsValue,"
+                  "keywords = :keywordsValue, remark = :remarkValue "
+                  "WHERE article_id = :id;");
+    query.bindValue(":dateValue", date);
+    query.bindValue(":titleValue", title);
+    query.bindValue(":linkValue", link);
+    query.bindValue(":viewsValue", views);
+    query.bindValue(":likesValue", likes);
+    query.bindValue(":commentsValue", comments);
+    query.bindValue(":keywordsValue", keywords);
+    query.bindValue(":remarkValue", remark);
+    query.bindValue(":id", id);
+    if (!query.exec()) {
+        qDebug() << query.lastError();
+    }
+    else {
+        qDebug() << "Exec";
+    }
+}
+
 void Database::deleteRow(QString id)
 {
     QSqlQuery query;

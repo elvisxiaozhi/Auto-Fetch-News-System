@@ -14,6 +14,7 @@ public:
     ~Database();
     static QSqlQueryModel *readData();
     static void writeData(QString, QString, QString, int, int, int, QString, QString);
+    static void modifyData(QString, QString, QString, QString, int, int, int, QString, QString);
     static void deleteRow(QString);
 
 private:

@@ -43,4 +43,13 @@ void Articles::on_modifyBtn_clicked()
 {
     ModifyArticle *mWidget = new ModifyArticle();
     mWidget->show();
+
+    connect(mWidget, &ModifyArticle::dataModified, [this](){ addData(); });
+
+    int row = ui->tableView->currentIndex().row();
+    mWidget->readData(ui->tableView->model()->data(ui->tableView->model()->index(row, 1)).toString(), ui->tableView->model()->data(ui->tableView->model()->index(row, 2)).toString(), ui->tableView->model()->data(ui->tableView->model()->index(row, 3)).toString(),
+                      ui->tableView->model()->data(ui->tableView->model()->index(row, 4)).toInt(), ui->tableView->model()->data(ui->tableView->model()->index(row, 5)).toInt(), ui->tableView->model()->data(ui->tableView->model()->index(row, 6)).toInt(),
+                      ui->tableView->model()->data(ui->tableView->model()->index(row, 7)).toString(), ui->tableView->model()->data(ui->tableView->model()->index(row, 8)).toString());
+
+    mWidget->id = ui->tableView->model()->data(ui->tableView->model()->index(row, 0)).toString();
 }
