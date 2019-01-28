@@ -8,6 +8,8 @@ NewArticle::NewArticle(QWidget *parent) :
     ui(new Ui::NewArticle)
 {
     ui->setupUi(this);
+
+    setWindowTitle("Add Data");
 }
 
 NewArticle::~NewArticle()
