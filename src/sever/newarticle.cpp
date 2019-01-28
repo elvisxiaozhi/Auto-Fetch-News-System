@@ -9,6 +9,8 @@ NewArticle::NewArticle(QWidget *parent) :
 {
     ui->setupUi(this);
 
+    ui->dateEdit->setDate(QDate::currentDate());
+
     setWindowTitle("Add Data");
 }
 
@@ -23,8 +25,8 @@ void NewArticle::closeEvent(QCloseEvent *)
 }
 
 void NewArticle::on_pushButton_clicked()
-{
-    Database::writeData(ui->dateEdit->text(), ui->titleEdit->text(), ui->linkEdit->text(),
+{    
+    Database::writeData(ui->dateEdit->date().toString("yyyy-MM-dd"), ui->titleEdit->text(), ui->linkEdit->text(),
                         ui->viewsEdit->text().toInt(), ui->likesEdit->text().toInt(), ui->commentsEdit->text().toInt(),
                         ui->keywordsEdit->text(), ui->remarkEdit->text());
 

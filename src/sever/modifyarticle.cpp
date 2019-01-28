@@ -17,9 +17,9 @@ ModifyArticle::~ModifyArticle()
     delete ui;
 }
 
-void ModifyArticle::readData(QString date, QString title, QString link, int views, int likes, int comments, QString keywords, QString remark)
+void ModifyArticle::readData(QDate date, QString title, QString link, int views, int likes, int comments, QString keywords, QString remark)
 {
-    ui->dateEdit->setText(date);
+    ui->dateEdit->setDate(date);
     ui->titleEdit->setText(title);
     ui->linkEdit->setText(link);
     ui->viewsEdit->setText(QString::number(views));
@@ -36,7 +36,7 @@ void ModifyArticle::closeEvent(QCloseEvent *)
 
 void ModifyArticle::on_pushButton_clicked()
 {
-    Database::modifyData(id, ui->dateEdit->text(), ui->titleEdit->text(), ui->linkEdit->text(),
+    Database::modifyData(id, ui->dateEdit->date().toString("yyyy-MM-dd"), ui->titleEdit->text(), ui->linkEdit->text(),
                          ui->viewsEdit->text().toInt(), ui->likesEdit->text().toInt(), ui->commentsEdit->text().toInt(),
                          ui->keywordsEdit->text(), ui->remarkEdit->text());
 

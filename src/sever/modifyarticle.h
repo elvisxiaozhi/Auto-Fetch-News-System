@@ -15,7 +15,7 @@ public:
     ~ModifyArticle();
 
     QString id;
-    void readData(QString, QString, QString, int, int, int, QString, QString);
+    void readData(QDate, QString, QString, int, int, int, QString, QString);
 
 private:
     Ui::ArticleData *ui;

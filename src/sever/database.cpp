@@ -67,12 +67,7 @@ void Database::modifyData(QString id, QString date, QString title, QString link,
     query.bindValue(":keywordsValue", keywords);
     query.bindValue(":remarkValue", remark);
     query.bindValue(":id", id);
-    if (!query.exec()) {
-        qDebug() << query.lastError();
-    }
-    else {
-        qDebug() << "Exec";
-    }
+    query.exec();
 }
 
 void Database::deleteRow(QString id)
