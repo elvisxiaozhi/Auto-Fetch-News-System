@@ -29,15 +29,17 @@ SOURCES += \
         widget.cpp \
     database.cpp \
     articles.cpp \
-    newarticle.cpp
+    newarticle.cpp \
+    modifyarticle.cpp
 
 HEADERS += \
         widget.h \
     database.h \
     articles.h \
-    newarticle.h
+    newarticle.h \
+    modifyarticle.h
 
 FORMS += \
         widget.ui \
     articles.ui \
-    newarticle.ui
+    articledata.ui

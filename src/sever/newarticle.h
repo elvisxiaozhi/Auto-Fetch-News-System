@@ -4,7 +4,7 @@
 #include <QWidget>
 
 namespace Ui {
-class NewArticle;
+class ArticleData;
 }
 
 class NewArticle : public QWidget
@@ -16,7 +16,7 @@ public:
     ~NewArticle();
 
 private:
-    Ui::NewArticle *ui;
+    Ui::ArticleData *ui;
 
 protected:
     void closeEvent(QCloseEvent *);

@@ -1,11 +1,11 @@
 #include "newarticle.h"
-#include "ui_newarticle.h"
+#include "ui_articledata.h"
 #include <QCloseEvent>
 #include "database.h"
 
 NewArticle::NewArticle(QWidget *parent) :
     QWidget(parent),
-    ui(new Ui::NewArticle)
+    ui(new Ui::ArticleData)
 {
     ui->setupUi(this);
 
@@ -26,7 +26,7 @@ void NewArticle::on_pushButton_clicked()
 {
     Database::writeData(ui->dateEdit->text(), ui->titleEdit->text(), ui->linkEdit->text(),
                         ui->viewsEdit->text().toInt(), ui->likesEdit->text().toInt(), ui->commentsEdit->text().toInt(),
-                        ui->keywordsEdit->text(), ui->commentsEdit->text());
+                        ui->keywordsEdit->text(), ui->remarkEdit->text());
 
     emit dataWritten();
     close();

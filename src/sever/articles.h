@@ -22,6 +22,7 @@ private:
 private slots:
     void on_deleteBtn_clicked();
     void on_addBtn_clicked();
+    void on_modifyBtn_clicked();
 };
 
 #endif // ARTICLES_H

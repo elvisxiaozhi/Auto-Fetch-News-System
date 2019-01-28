@@ -2,6 +2,7 @@
 #include "ui_articles.h"
 #include "database.h"
 #include "newarticle.h"
+#include "modifyarticle.h"
 
 Articles::Articles(QWidget *parent) :
     QWidget(parent),
@@ -36,4 +37,10 @@ void Articles::on_addBtn_clicked()
     NewArticle *mWidget = new NewArticle();
     mWidget->show();
     connect(mWidget, &NewArticle::dataWritten, [this](){ addData(); });
+}
+
+void Articles::on_modifyBtn_clicked()
+{
+    ModifyArticle *mWidget = new ModifyArticle();
+    mWidget->show();
 }
