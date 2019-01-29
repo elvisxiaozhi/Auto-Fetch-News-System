@@ -12,6 +12,8 @@ Widget::Widget(QWidget *parent) :
 
     articles = new Articles(this);
     ui->tabWidget->addTab(articles, "Articles");
+
+    setWindowTitle("OAML Management System");
 }
 
 Widget::~Widget()

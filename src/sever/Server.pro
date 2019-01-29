@@ -43,3 +43,6 @@ FORMS += \
         widget.ui \
     articles.ui \
     articledata.ui
+
+RESOURCES += \
+    ../icon/icons.qrc
