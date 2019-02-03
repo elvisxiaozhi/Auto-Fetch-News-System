@@ -11,8 +11,6 @@ Articles::Articles(QWidget *parent) :
 {
     ui->setupUi(this);
 
-    ui->searchLabel->setPixmap(QPixmap(":/icons/search.png"));
-
     addData();
 }
 
