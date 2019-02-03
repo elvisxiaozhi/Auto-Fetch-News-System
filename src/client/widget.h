@@ -4,6 +4,7 @@
 #include <QWidget>
 #include "database.h"
 #include "articles.h"
+#include "materials.h"
 
 namespace Ui {
 class Widget;
@@ -19,8 +20,9 @@ public:
 
 private:
     Ui::Widget *ui;
-    Articles *articles;
     Database *db;
+    Articles *articles;
+    Materials *materials;
 };
 
 #endif // WIDGET_H

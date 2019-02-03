@@ -11,7 +11,10 @@ Widget::Widget(QWidget *parent) :
     db = new Database(this);
 
     articles = new Articles(this);
+    materials = new Materials(this);
+
     ui->tabWidget->addTab(articles, "Articles");
+    ui->tabWidget->addTab(materials, "Materials");
 
     setWindowTitle("OAML Management System");
 }

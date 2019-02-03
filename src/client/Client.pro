@@ -30,19 +30,22 @@ SOURCES += \
     database.cpp \
     articles.cpp \
     newarticle.cpp \
-    modifyarticle.cpp
+    modifyarticle.cpp \
+    materials.cpp
 
 HEADERS += \
         widget.h \
     database.h \
     articles.h \
     newarticle.h \
-    modifyarticle.h
+    modifyarticle.h \
+    materials.h
 
 FORMS += \
         widget.ui \
     articles.ui \
-    articledata.ui
+    articledata.ui \
+    materials.ui
 
 RESOURCES += \
     ../icon/icons.qrc
